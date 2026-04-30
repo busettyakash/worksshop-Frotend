@@ -1,4 +1,4 @@
-// API client — update BASE_URL to your Node.js backend
+// API client — update VITE_API_URL in .env to point at your backend
 import axios from 'axios'
 
 const api = axios.create({
@@ -13,7 +13,7 @@ api.interceptors.request.use((config) => {
   return config
 })
 
-// Handle 401 — redirect to login
+// Handle 401 — clear storage and redirect to login
 api.interceptors.response.use(
   (res) => res,
   (err) => {
